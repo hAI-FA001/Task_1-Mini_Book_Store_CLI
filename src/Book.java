@@ -57,4 +57,10 @@ public class Book {
         return String.format("ISBN: %10d\nTitle: %15s\nAuthor: %10s\nPrice: %5.2f\tQuantity: %-7d",
                 isbn, title, author, price, quantity);
     }
+
+    public boolean equals(Object o){
+        Book b = (Book)o;
+
+        return this.isbn == b.isbn;
+    }
 }

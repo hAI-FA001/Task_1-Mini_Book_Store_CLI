@@ -15,13 +15,13 @@ public class Driver {
         int is_exit = 0;
         while(is_exit != -1){
             System.out.print("\nPress 1 to display books" +
-                    "\nPress 2 to print revenue" +
-                    "\nPress 3 to add a book" +
-                    "\nPress 4 to sell a book" +
-                    "\nPress 5 to search for a book" +
-                    "\nPress -1 to quit\n\n");
+                    "\nEnter 2 to print revenue" +
+                    "\nEnter 3 to add a book" +
+                    "\nEnter 4 to sell a book" +
+                    "\nEnter 5 to search for a book" +
+                    "\nEnter -1 to Exit\n\n");
 
-            int input = s.nextInt();
+            int input = Integer.parseInt(s.next());
 
             switch (input){
                 case -1:
@@ -65,7 +65,10 @@ public class Driver {
                     }
                     System.out.println("Enter quantity to sell: ");
                     int bookQuantity = s.nextInt();
-                    bookStore.sellBook(bookTitle, bookQuantity);
+                    if(bookQuantity > 0)
+                        bookStore.sellBook(bookTitle, bookQuantity);
+                    else
+                        System.out.println("Quantity must be greater than zero.");
                     break;
                 }
                 case 5: {

@@ -17,6 +17,19 @@ public class BookStore {
     }
 
     public void addBook(Book book){
+        int found = searchBook(book.getTitle());
+        if(found != -1 && book.equals(bookList[found]))
+        {
+            System.out.println("Book already exists. Updating its quantity...");
+
+            Book alreadyExists = bookList[found];
+            alreadyExists.setQuantity(alreadyExists.getQuantity()+1);
+
+            System.out.println("Successfully updated quantity. Current quantity: "+alreadyExists.getQuantity());
+            return;
+        }
+
+
         if(bookList.length == MAX_CAP)
         {
             System.out.println("Reached max capacity of books");
